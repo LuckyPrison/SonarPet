@@ -73,13 +73,17 @@ definition_regex = regex.compile("(\w+)(?:=(\w+))")
 variable_replacement_regex=regex.compile("\$(\w+)")
 directive_regex=regex.compile("^\s*#.*")
 
+cpp = "cpp-6"
+if not shutil.which(cpp):
+    cpp = "cpp"
+
 if not shutil.which("cpp"):
     eprint("No c preprocessor found!")
     exit(1)
 
 # Precompute the arguments to pass to the preprocessor for speed
 cmd_args = [
-    "cpp",
+    cpp,
     "-P", # Don't generate weird linemarkers
     "-undef",  # Do not predefine any system-specific or GCC-specific macros.
     "-I", # Search for headers in the template dir
@@ -152,4 +156,3 @@ for version in versions:
             else:
                 eprint("Unable to process file", file, "because it isn't a template file!")
                 eprint("Please prefix it with '.template' to use it as a template")
-                exit(1)
