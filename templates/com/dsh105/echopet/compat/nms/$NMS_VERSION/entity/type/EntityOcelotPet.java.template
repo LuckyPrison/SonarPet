@@ -50,6 +50,7 @@ public class EntityOcelotPet extends EntityOcelot implements EntityAgeablePet, I
 
     @Override
     public void initiateEntityPet() {
+        EntityAgeablePet.super.initiateEntityPet();
         setCatType(Ocelot.Type.BLACK_CAT.getId());
 #if NMS_VERSION >= v1_9_R1
         setOwnerUUID(pet.getOwnerUUID());

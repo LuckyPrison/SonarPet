@@ -147,7 +147,7 @@ public class NMS {
             deathSoundMethod = EntityLiving.class.getDeclaredMethod("bS");
 #elif NMS_VERSION == v1_8_R3
             ambientSoundMethod = EntityInsentient.class.getDeclaredMethod("z");
-            deathSoundMethod = EntityLiving.class.getDeclaredMethod("bo");
+            deathSoundMethod = EntityLiving.class.getDeclaredMethod("bp");
 #else
             #error "Unkown sound methods for version NMS_VERSION"
 #endif

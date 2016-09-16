@@ -11,7 +11,7 @@
 #elif NMS_VERSION == v1_8_R3
     #define IS_JUMPING_FIELD_NAME "aY"
 #else
-    #error "Unkown entity step height field for version NMS_VERSION"
+    #error "Unknown jumping field for version NMS_VERSION"
 #endif
 
 #if NMS_VERSION == v1_10_R1 || NMS_VERSION == v1_9_R2 || NMS_VERSION == v1_9_R1
@@ -39,7 +39,7 @@
 #if NMS_VERSION == v1_10_R1 || NMS_VERSION == v1_9_R2 || NMS_VERSION == v1_9_R1 || NMS_VERSION == v1_8_R3
     #define ON_STEP_METHOD a
 #else
-    #error "Unkown onStep method for version NMS_VERSION"
+    #error "Unknown onStep method for version NMS_VERSION"
 #endif
 
 //
@@ -93,7 +93,7 @@
 #endif
 
 #if NMS_VERSION == v1_10_R1 || NMS_VERSION == v1_9_R2 || NMS_VERSION == v1_9_R1 || NMS_VERSION == v1_8_R3
-    #define SET_CAN_SWIM(entity, canSwim) ((Navigation) entity.getNavigation()).c(canSwim)
+    #define SET_CAN_SWIM(entity, canSwim) ((Navigation) entity.getNavigation()).d(canSwim)
 #else
     #error "Don't know how to set if an entity can swim for version NMS_VERSION"
 #endif

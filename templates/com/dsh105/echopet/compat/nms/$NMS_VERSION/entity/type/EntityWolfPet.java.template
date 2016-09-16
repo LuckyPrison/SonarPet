@@ -59,6 +59,7 @@ public class EntityWolfPet extends EntityWolf implements EntityAgeablePet, IEnti
 
     @Override
     public void initiateEntityPet() {
+        EntityAgeablePet.super.initiateEntityPet();
         setTamed(true); // Tame
     }
 
@@ -70,6 +71,9 @@ public class EntityWolfPet extends EntityWolf implements EntityAgeablePet, IEnti
     @Override
     public void setTamed(boolean flag) {
         super.setTamed(flag);
+
+        // This is called by the EntityWolf constructor before the pet field is set
+        if (getPet() == null) return;
 
         if (!flag) {
             getPet().getPetData().remove(PetData.TAMED);

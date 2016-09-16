@@ -71,6 +71,7 @@ public class EntityHorsePet extends EntityHorse implements EntityAgeablePet, IEn
 
     @Override
     public void initiateEntityPet() {
+        EntityAgeablePet.super.initiateEntityPet();
         getBukkitEntity().setOwnerUUID(pet.getOwnerUUID());
     }
 
@@ -114,7 +115,7 @@ public class EntityHorsePet extends EntityHorse implements EntityAgeablePet, IEn
 #elif NMS_VERSION == v1_8_R3
         this.s(b);
 #else
-    #error "Don't know how to check if a navigation CAN_ENTER_DOORS"
+    #error "Don't know how to set a horse to rearing"
 #endif
     }
 

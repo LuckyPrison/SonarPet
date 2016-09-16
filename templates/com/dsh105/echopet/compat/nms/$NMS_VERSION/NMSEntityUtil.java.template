@@ -124,8 +124,13 @@ public class NMSEntityUtil {
      * Hacky stuff to get around doTick() becoming final
      */
 
+#if NMS_VERSION >= v1_9_R1
     protected static FieldAccessor<Set> GOALS;
     protected static FieldAccessor<Set> ACTIVE_GOALS;
+#else
+    protected static FieldAccessor<List> GOALS;
+    protected static FieldAccessor<List> ACTIVE_GOALS;
+#endif
 
     protected static MethodAccessor<Void> ADD_GOAL;
 
@@ -152,7 +157,11 @@ public class NMSEntityUtil {
                 throw new RuntimeException("Failed to get the addGoal method!");
             }
 
+#if NMS_VERSION >= v1_9_R1
             List<SafeField<Set>> fieldCandidates = goalTemplate.getSafeFields(withType(Set.class));
+#else
+            List<SafeField<List>> fieldCandidates = goalTemplate.getSafeFields(withType(List.class));
+#endif
             if (fieldCandidates.size() > 1) {
                 GOALS = fieldCandidates.get(0).getAccessor();
                 ACTIVE_GOALS = fieldCandidates.get(0).getAccessor();
